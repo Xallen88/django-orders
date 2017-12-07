@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Computers and IT Supplies</h1>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% for c in category_list %}
+
+<button class="expand">{{ c }}s</button>
+
+<div class="order-table">
+<table>
+{% for p in product_list %}
+{% if p.product_category == c %}
+<tr>
+	<td><img src="{% static "images/" %}{{ p.pk }}.jpg"></td>
+	<td>{{ p.product_name }}</td>
+	<td>{{ p.product_description }}</td>
+	<td> 
+	<select name="{{ p.pk }}q" form="order">
+	<option value=0>0</option>
+	<option value=1>1</option>
+	<option value=2>2</option>
+	<option value=3>3</option>
+	<option value=4>4</option>
+	<option value=5>5</option>
+	<option value=6>6</option>
+	<option value=7>7</option>
+	<option value=8>8</option>
+	<option value=9>9</option>
+	</select>
+	</td>
+</tr>
+{% endif %}
+{% endfor %}
+</table>
+</div>
+{% endfor %}
+<form method="post" action="{% url 'shopsubmit' %}" id="order">
+{% csrf_token %}
+<input type="submit" value="Submit for Approval">
+</form>
+
+<script>
+var exp = document.getElementsByClassName("expand");
+var i;
+
+for(i = 0; i < exp.length; i++){
+	exp[i].onclick = function(){
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.display === "block"){
+			panel.style.display = "none";
+		} else {
+			panel.style.display = "block";
+		}
+	}
+}
+</script>
+{% endblock %}

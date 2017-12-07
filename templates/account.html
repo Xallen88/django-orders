@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Account Information</h1>
+{% endblock %}
+
+{% block content %}
+<div class="account-info">
+<table>
+<tr>
+	<td>First Name:</td>
+	<td>{{ user.first_name }}</td>
+</tr>
+<tr>
+	<td>Last Name:</td>
+	<td>{{ user.last_name }}</td>
+</tr>
+<tr>
+	<td>Email:</td>
+	<td>{{ user.email }}</td>
+</tr>
+<tr>
+	<td>Shipping Details:</td>
+	<td>{{ shipping_info.shipping_address }}<br>
+	{{ shipping_info.shipping_city }}, {{ shipping_info.shipping_postalcode }}</td>
+</tr>
+</table>
+
+<p>If any of this information is incorrect, please message your IT administrator</p>
+</div>
+{% endblock %}

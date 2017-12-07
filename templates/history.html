@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Order History</h1>
+{% endblock %}
+
+{% block content %}
+<div class="history-table">
+<table>
+	<tr>
+		<th>Order Number</th>
+		<th>Item Name</th>
+		<th>Quantity</th>
+		<th>Request Date</th>
+		<th>Approval Status</th>
+	</tr>
+	
+	{% for q in order_history %}
+	<tr>
+		<td>{{ q.order_id }}</td>
+		<td>{{ q.product_id.product_name }}</td>
+		<td>{{ q.order_quantity }}</td>
+		<td>{{ q.order_date }}</td>
+		<td>
+		{% if q.order_approved == None %}
+			Pending Approval
+		{% elif q.order_approved == True %}
+			Approved
+		{% else %}
+			Denied
+		{% endif %}
+		</td>
+	</tr>
+	{% endfor %}
+
+</table>
+</div>
+{% endblock %}

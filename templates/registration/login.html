@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<h1>Login</h1>
+
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match.</p>
+{% endif %}
+
+{% if next %}
+	{% if user.is_authenticated %}
+	{% else %}
+	<div class="center">
+	<p>Please login to see this page.</p>
+	</div>
+	{% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<div class="login-table">
+<table>
+<tr>
+	<td><div class="right">{{ form.username.label_tag }}</div></td>	
+	<td>{{ form.username }}</td>
+</tr>
+<tr>
+	<td><div class="right">{{ form.password.label_tag }}</div></td>
+	<td>{{ form.password }}</td>
+</tr>
+</table>
+</div>
+
+<input type="submit" value="Login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}

@@ -1,0 +1,119 @@
+body{
+	width: 800px;
+	margin: auto;
+	font-family: Arial, Verdana, Sans-serif;
+}
+
+.site-header{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.page-header{
+	margin-bottom:30px;
+	text-align: center;
+}
+
+nav{
+	margin-bottom: 80px;
+}
+
+nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li{
+	float: left;
+	border-right: 1px solid #ffffff;
+}
+
+nav ul li a{
+	display: block;
+	color: #5555dd;
+	text-align: center;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+
+nav ul li a:hover{
+	background-color: #dddddd;
+}
+
+nav ul li:last-child{
+	float: right;
+}
+
+.content-container{
+	/*unused div*/
+}
+
+button.expand{
+	text-align: left;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 26px;
+	width: 100%;
+	margin: 10px;
+	padding: 15px;
+	border: 1px solid #aaaaee;
+	border-radius: 13px;
+	outline: none;
+	cursor: pointer;
+	background-color: none;
+	transition: 0.4s;
+}
+button.expand.active, button.expend:hover{
+	background-color: #aaaaee;
+}
+button.expand:after{
+	content: '\2795';
+	float: right;
+}
+button.expand.active:after{
+	content: "\2796";
+}
+
+table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td{
+	padding: 10px;
+}
+
+.history-table table, .history-table th, .history-table td{
+	border: 1px solid grey;
+}
+
+.order-table{
+	display: none;
+}
+
+.account-info{
+	width: 70%;
+	margin: auto;
+}
+
+.login-table{
+	width: 70%;
+	margin: auto;
+}
+
+input[type=submit]{
+	display: block;
+	margin: 40px auto;
+	padding: 10px;
+	border: 2px solid #aaaaee;
+	border-radius: 10px;
+}
+
+.right{
+	float: right;
+	padding-right: 10px;
+}
+.center{
+	text-align: center;
+}
